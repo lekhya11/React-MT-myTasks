@@ -1,0 +1,17 @@
+.button-tag {
+  border: 1px solid #f3aa4e;
+  color: white;
+  font-size: 15px;
+  font-family: 'Roboto';
+  padding: 12px;
+
+  border-radius: 25px;
+  margin: 10px;
+}
+.unActive-but {
+  background-color: transparent;
+}
+
+.Active-but {
+  background-color: #f3aa4e;
+}

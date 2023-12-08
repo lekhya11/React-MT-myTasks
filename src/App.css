@@ -22,10 +22,11 @@ body {
   background-color: #131213;
   color: #f3aa4e;
   padding: 20px;
+  font-family: 'Roboto';
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: flex-start;
+  align-items: flex-start; */
 }
 
 .right-cont {
@@ -33,4 +34,52 @@ body {
   width: 70vw;
   color: white;
   padding: 20px;
+  font-family: 'Roboto';
+}
+
+.main-heading {
+  text-align: center;
+  font-size: 45px;
+}
+
+.label {
+  color: white;
+  text-align: left;
+}
+
+.input-text {
+  width: 80%;
+  height: 40px;
+  padding: 4px;
+  margin-bottom: 40px;
+  border-radius: 8px;
+  margin-top: 6px;
+  border: 3px solid #f3aa4e;
+  background-color: transparent;
+  color: #f3aa4e;
+}
+
+.option-text {
+  background-color: black;
+  color: #f3aa4e;
+  border: 3px solid #f3aa4e;
+}
+
+.button {
+  background-color: #f3aa4e;
+  color: white;
+  height: 40px;
+  width: 120px;
+  border-radius: 10px;
+}
+
+.button-con {
+  text-align: center;
+}
+
+.tags-con {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 95%;
 }
