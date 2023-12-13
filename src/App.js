@@ -37,6 +37,16 @@ const tagsList = [
 class App extends Component {
   state = {
     TagActive: '',
+    taskInput: '',
+    optionId: tagsList[0].optionId,
+  }
+
+  onChangeInput = event => {
+    this.setState({taskInput: event.target.value})
+  }
+
+  onChangeSelect = event => {
+    this.setState({optionId: event.target.value})
   }
 
   onTagButtonClicked = id => {
@@ -44,7 +54,9 @@ class App extends Component {
   }
 
   render() {
-    const {TagActive} = this.state
+    const {TagActive, taskInput, optionId} = this.state
+    console.log(optionId)
+    console.log(taskInput)
     return (
       <div className="main-con">
         <div className="left-cont">
@@ -52,11 +64,22 @@ class App extends Component {
           <label htmlFor="text-input" className="label">
             Task
           </label>
-          <input id="text-input" type="text" className="input-text" />
+          <input
+            id="text-input"
+            type="text"
+            className="input-text"
+            onChange={this.onChangeInput}
+            value={taskInput}
+          />
           <label htmlFor="select-input" className="label">
             Tags
           </label>
-          <select id="select-input" className="input-text">
+          <select
+            id="select-input"
+            className="input-text"
+            onChange={this.onChangeSelect}
+            value={optionId}
+          >
             {tagsList.map(each => (
               <option
                 key={each.optionId}
