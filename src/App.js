@@ -1,6 +1,10 @@
 import {Component} from 'react'
 
+import {v4 as uuid} from 'uuid'
+
 import Tags from './component/Tags'
+
+import TaskList from './component/TaskList'
 
 import './App.css'
 
@@ -39,6 +43,7 @@ class App extends Component {
     TagActive: '',
     taskInput: '',
     optionId: tagsList[0].optionId,
+    taskList: [],
   }
 
   onChangeInput = event => {
@@ -50,16 +55,38 @@ class App extends Component {
   }
 
   onTagButtonClicked = id => {
+    const {taskList} = this.state
     this.setState({TagActive: id})
+    const filterList = taskList.filter(each => each.tadId === id)
+    this.setState({taskList: filterList})
+  }
+
+  OnClickAdd = event => {
+    event.preventDefault()
+    const {taskInput, optionId} = this.state
+
+    const newTask = {
+      id: uuid(),
+      text: taskInput,
+      tadId: optionId,
+    }
+
+    this.setState(prevState => ({
+      taskList: [...prevState.taskList, newTask],
+      taskInput: '',
+      optionId: tagsList[0].optionId,
+    }))
   }
 
   render() {
-    const {TagActive, taskInput, optionId} = this.state
-    console.log(optionId)
-    console.log(taskInput)
+    const {TagActive, taskInput, optionId, taskList} = this.state
+    // console.log(optionId)
+    // console.log(taskInput)
+    // console.log(taskList)
+
     return (
       <div className="main-con">
-        <div className="left-cont">
+        <form className="left-cont" onSubmit={this.OnClickAdd}>
           <h1 className="main-heading"> Create a Task!</h1>
           <label htmlFor="text-input" className="label">
             Task
@@ -91,11 +118,11 @@ class App extends Component {
             ))}
           </select>
           <div className="button-con">
-            <button className="button" type="button">
+            <button className="button" type="submit">
               Add Task
             </button>
           </div>
-        </div>
+        </form>
         <div className="right-cont">
           <h1>Tags</h1>
           <div className="tags-con">
@@ -108,6 +135,10 @@ class App extends Component {
               />
             ))}
           </div>
+          <h1>Tasks</h1>
+          {taskList.map(each => (
+            <TaskList details={each} key={each.id} />
+          ))}
         </div>
       </div>
     )

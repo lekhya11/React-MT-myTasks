@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.task-button {
+  border: 1px solid #f3aa4e;
+  color: #323f4b;
+  background-color: #f3aa4e;
+  font-size: 15px;
+  font-family: 'Roboto';
+  font-weight: bolder;
+  padding: 12px;
+  border-radius: 25px;
+  margin: 10px;
+}
+
+.task-List {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a171d;
+  padding: 15px;
+  margin: 10px;
+  height: 60px;
+}
+
+.task-heading {
+  font-size: 20px;
+  font-family: 'Roboto';
+  font-weight: 500;
+}
